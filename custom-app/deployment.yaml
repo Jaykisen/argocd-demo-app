@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: custom-app
+  namespace: custom-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: custom
+  template:
+    metadata:
+      labels:
+        app: custom
+    spec:
+      containers:
+      - name: custom
+        image: busybox
+        command: ["sleep", "3600"]
